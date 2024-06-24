@@ -1,68 +1,83 @@
 <?php include "partials/menu.php"; ?>
 
 <div class="main-content">
-        <div class="wrapper">
-            <h1>Manage Category </h1>
-            <br /> <br />
+    <div class="wrapper">
+        <h1>Manage Category</h1>
+        <br /> <br />
 
-            <!-- Button to Add Admin -->
+        <?php
+        
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+        ?>
+        <br><br>
 
-            <a href="#" class="btn-primary">Add Category</a>
-            
-            <br /> <br /> <br />
+        <!-- Button to Add Admin -->
+        <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
+        <br /> <br /> <br />
 
+        <table class="tbl-full">
+            <tr>
+                <th>S.N.</th>
+                <th>Title</th>
+                <th>Image_name</th>
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
 
-            <table class="tbl-full">
-                <tr>
-                    <th>S.N.</th>
-                    <th>Full Nmae</th>
-                    <th>Username</th>
-                    <th>Actions</th>
+            <?php
 
-                </tr>
+            $sql = "SELECT * FROM tbl_category";
+            $res = mysqli_query($conn, $sql);
 
-                <tr>
-                    <td>1 .</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>Mohamedahmed</td>
-                    <td>
-                        <a href="#" class="btn-secondry">  Update Admin  </a>
-                        <a href="#" class="btn-danger">   Delete Admin  </a>
-                    </td>
+            if ($res == TRUE) {
+                $count = mysqli_num_rows($res);
 
-                </tr>
+                if ($count > 0) {
+                    $sn = 1; // Initialize a counter for the serial number
 
-                <tr>
+                    while ($rows = mysqli_fetch_assoc($res)) {
+                        $id = $rows['id']; 
+                        $title = $rows['title'];
+                        $image_name = $rows['image_name'];
+                        $featured = $rows['featured'];
+                        $active = $rows['active'];
 
-                    <td>1 .</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>Mohamedahmed</td>
-                    <td>
-                        <a href="#" class="btn-secondry"> Update Admin  </a>
-                        <a href="#" class="btn-danger">   Delete Admin  </a>
-                    </td>
-
-                
-
-                </tr>
-
-                <tr>
-
-                    <td>1 .</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>Mohamedahmed</td>
-                    <td>
-                        <a href="#" class="btn-secondry"> Update Admin  </a>
-                        <a href="#" class="btn-danger">   Delete Admin  </a>
-                    </td>
-
-                </tr>
-                
-
-            </table>
-            
-        </div>    
-    </div>
-
+                        ?>
+                        <tr>
+                            <td><?php echo $sn++; ?></td>
+                            <td><?php echo $title; ?></td>
+                            <td>
+                                <?php
+                                
+                                    if($image_name!= "")
+                                    {
+                                        ?>
+                                        <img src="<?php echo SITEURL;?>images/category/<?php echo $image_name;?>" width="100px">
+                                        <?php 
+                                    }
+                                    else{
+                                        echo "<div class='error'> Image Not Added </div>";
+                                    }
+                                ?>
+                            </td>
+                            <td><?php echo $featured;?></td>
+                            <td><?php echo $active;?></td>
+                            <td>
+                                <a href="#" class="btn-secondry">Update Category</a>
+                                <a href="#" class="btn-danger">Delete Category</a>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                }
+            }
+            ?> 
+        </table>
+    </div>    
+</div>
 
 <?php include('partials/footer.php'); ?>
