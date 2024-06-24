@@ -222,3 +222,11 @@ form {
     float: left;
 }
 
+.login{
+    border: 2px solid gray;
+    width: 50%;
+    margin: 10% auto;
+    padding: 2%;
+}
+
+

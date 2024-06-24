@@ -33,6 +33,24 @@
             } 
             
 
+            if(isset($_SESSION['user-not-found']))
+            
+            {
+                echo $_SESSION['user-not-found'];
+                unset ($_SESSION['user-not-found']);
+            } 
+
+
+            if(isset($_SESSION['login']))
+            
+            {
+                echo $_SESSION['login'];
+                unset ($_SESSION['login']);
+            } 
+        
+            
+
+
 
 
             ?>
@@ -80,6 +98,7 @@
                         <td><?php echo $full_name ;?></td>
                         <td><?php echo $username ;?></td>
                         <td>
+                            <a href="<?php echo SITEURL ;?>admin/update-password.php?id=<?php echo $id ;?>" class="btn-primary">Change Password</a>
                             <a href="<?php echo SITEURL ;?>admin/update-admin.php?id=<?php echo $id ;?>" class="btn-secondry">  Update Admin  </a>
                             <a href="<?php echo SITEURL ;?>admin/delete-admin.php?id=<?php echo $id ;?>" class="btn-danger">   Delete Admin  </a>
                         </td>
