@@ -8,15 +8,19 @@
         <?php
         
         if (isset($_SESSION['add'])) {
+
             echo $_SESSION['add'];
             unset($_SESSION['add']);
         }
 
         if (isset($_SESSION['upload'])) {
+
             echo $_SESSION['upload'];
             unset($_SESSION['upload']);
         }
+
         ?>
+
         <br><br>
 
         <form action="" method="post" enctype="multipart/form-data">
@@ -59,7 +63,7 @@
 
             $featured = isset($_POST['featured']) ? $_POST['featured'] : "No";
             $active = isset($_POST['active']) ? $_POST['active'] : "Yes";
-
+            
             $image_name = "";
 
             if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != "") {
