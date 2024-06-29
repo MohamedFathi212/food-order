@@ -1,9 +1,7 @@
 <?php include 'partials/menu.php'; ?>
-
 <div class="main-content">
     <div class="wrapper">
         <h1>Add Food</h1>
-
         <br><br>
         <?php 
 
@@ -12,6 +10,7 @@
                 echo $_SESSION['upload'];
                 unset($_SESSION['upload']);
             }
+            
         ?>
         <br><br>
         <form action="" method="POST" enctype="multipart/form-data" class="food-form">
@@ -126,6 +125,7 @@
                     exit();
                 }
             }
+            
         ?>
     </div>
 </div>
