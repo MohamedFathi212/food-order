@@ -111,7 +111,7 @@
                     }
                 }
 
-                $sql2 = "INSERT INTO tbl_food (title, description, price, image_name, categories_id, featured, active)
+                $sql2 = "INSERT INTO tbl_food (title, description, price, image_name, category_id, featured, active)
                         VALUES ('$title', '$description', $price, '$image_name', $category, '$featured', '$active')";
                 $res2 = mysqli_query($conn, $sql2);
 
