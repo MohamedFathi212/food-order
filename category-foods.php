@@ -47,6 +47,7 @@ else
             $count2 = mysqli_num_rows($res2);
             if ($count2 > 0) {
                 while ($rows2 = mysqli_fetch_assoc($res2)) {
+                    $id = $rows2['id'];
                     $title = $rows2['title'];
                     $price = $rows2['price'];
                     $description = $rows2['description'];
@@ -78,7 +79,7 @@ else
                                     </p>
                                     <br>
 
-                                    <a href="#" class="btn btn-primary">Order Now</a>
+                                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                             </div>
                         </div>
 

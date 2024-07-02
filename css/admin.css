@@ -14,20 +14,20 @@
     text-align: center;
 }
 
-.clearfix {
-    float: none;
+.clearfix::after {
+    content: "";
+    display: table;
     clear: both;
 }
 
-.tbl-full{
-    
+.tbl-full {
     width: 90%;
+    border-collapse: collapse;
 }
 
 .tbl-30 {
     width: 30%;
 }
-
 
 table tr th {
     border-bottom: 1px solid black;
@@ -40,40 +40,39 @@ table tr td {
 }
 
 .btn-primary {
-    
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
     padding: 1%;
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: rgb(18, 18, 152);
 }
 
 .btn-secondry {
-    margin-right:3px ;
-    background-color:rgb(10, 146, 80);
+    margin-right: 3px;
+    background-color: rgb(10, 146, 80);
     padding: 1%;
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-.btn-secondry:hover{
+.btn-secondry:hover {
     background-color: rgb(14, 237, 103);
 }
 
 .btn-danger {
-    background-color:rgb(140, 6, 13);
+    background-color: rgb(140, 6, 13);
     padding: 1%;
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-.btn-danger:hover{
+.btn-danger:hover {
     background-color: rgb(245, 6, 14);
 }
 
@@ -179,7 +178,6 @@ form {
     color: #ae1b1b;
 }
 
-
 .menu {
     border-bottom: 1px solid gray;
 }
@@ -195,16 +193,15 @@ form {
 
 .menu ul li a {
     text-decoration: none;
-    font-weight:bold;
-    color:#ff6b81 ;
+    font-weight: bold;
+    color: #ff6b81;
 }
 
 .menu ul li a:hover {
-    color:#a9142a ;
+    color: #a9142a;
 }
 
 .main-content {
-
     background-color: #f1f2f6;
     padding: 3% 0;
 }
@@ -216,13 +213,13 @@ form {
 
 .col-4 {
     width: 18%;
-    background-color:white;
+    background-color: white;
     margin: 1%;
     padding: 2%;
     float: left;
 }
 
-.login{
+.login {
     border: 2px solid gray;
     width: 50%;
     margin: 10% auto;
@@ -297,4 +294,3 @@ form {
 .food-form input[type="submit"]:hover {
     background-color: #45a049;
 }
-
