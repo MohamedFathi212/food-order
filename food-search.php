@@ -6,7 +6,7 @@
 
     <?php
      // Get the name Search
-    $search = $_POST['search'];
+    $search = mysqli_escape_string($conn,$_POST['search']);
 
     ?>
         <h2>Foods on Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>

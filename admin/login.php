@@ -62,8 +62,9 @@
 
 if(isset($_POST['submit'])){
     
-    $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $username =mysqli_escape_string($conn,$_POST['username']);
+    $raw_password = md5($_POST['password']);
+    $password = mysqli_escape_string($conn,$raw_password);
 
     // تأكد من إحاطة $username بعلامات الاقتباس في استعلام SQL
     $sql = "SELECT * FROM tbl_admin WHERE username = '$username' AND password = '$password'";
